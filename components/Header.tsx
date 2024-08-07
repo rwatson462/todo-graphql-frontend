@@ -1,5 +1,6 @@
 import {Link} from "@/components/Link";
 import { LoggedIn } from "./auth/LoggedIn";
+import { LoggedOut } from "./auth/LoggedOut";
 
 export const Header = () => (
   <header className={'flex justify-between items-center'}>
@@ -10,5 +11,11 @@ export const Header = () => (
           <span><Link href={'/profile'}>Profile</Link></span>
       </p>
     </LoggedIn>
+    <LoggedOut>
+      <p className='space-x-4'>
+        <span><Link href='/login'>Log in</Link></span>
+        <span><Link href='/register'>Register</Link></span>
+      </p>
+    </LoggedOut>
   </header>
 )

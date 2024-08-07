@@ -1,6 +1,7 @@
 import {createContext, PropsWithChildren, useContext, useState} from "react";
 
 type Token = string|undefined
+
 type User = {
   id: number
   name: string

@@ -1,12 +1,13 @@
 import {ApolloClient, InMemoryCache} from "@apollo/client";
 
+const GraphQlUrl = process.env.GRAPHQL_URL ?? process.env.NEXT_PUBLIC_GRAPHQL_URL
+
 export const apolloClient = new ApolloClient({
-  uri: 'https://todo-graphql.test/graphql',
+  uri: GraphQlUrl,
   cache: new InMemoryCache(),
 })
 
 export function createApolloClient(bearerToken?: string) {
-  console.log('Creating Apollo Client with token', bearerToken)
   const headers: any = {}
 
   if (bearerToken) {
@@ -14,7 +15,7 @@ export function createApolloClient(bearerToken?: string) {
   }
 
   return new ApolloClient({
-    uri: 'https://todo-graphql.test/graphql',
+    uri: GraphQlUrl,
     cache: new InMemoryCache(),
     headers
   })

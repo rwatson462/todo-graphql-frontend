@@ -3,7 +3,6 @@ import {Fira_Sans} from "next/font/google";
 import {PropsWithChildren} from "react";
 import "./globals.css"
 import {ClientProviders} from "@/components/ClientProviders";
-import {Link} from "@/components/Link";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 
@@ -14,9 +13,7 @@ export const metadata: Metadata = {
   description: "A Todo add using Next, GraphQL, and Laravel",
 };
 
-export default function RootLayout({
-                                     children,
-                                   }: Readonly<PropsWithChildren>) {
+export default function RootLayout({children}: Readonly<PropsWithChildren>) {
   return (
     <ClientProviders>
       <html lang="en" className={'bg-slate-900 text-slate-50'}>

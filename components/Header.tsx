@@ -4,7 +4,7 @@ import { LoggedOut } from "./auth/LoggedOut";
 
 export const Header = () => (
   <header className={'flex justify-between items-center'}>
-    <h1 className={'text-4xl'}><Link href={'/'}>Next, GraphQL, Laravel</Link></h1>
+    <h1 className={'text-2xl font-bold'}><Link href={'/'}>Next, GraphQL, Laravel</Link></h1>
     <LoggedIn>
       <p className={'space-x-4'}>
           <span><Link href={'/users'}>Users</Link></span>

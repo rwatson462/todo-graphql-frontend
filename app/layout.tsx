@@ -6,7 +6,7 @@ import {ClientProviders} from "@/components/ClientProviders";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 
-const firaSans = Fira_Sans({weight: '400', subsets: ["latin"]});
+const firaSans = Fira_Sans({weight: ['400', '700'], subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "Todo-graphql",

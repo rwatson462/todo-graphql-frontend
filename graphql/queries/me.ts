@@ -1,7 +1,8 @@
-import { createApolloClient } from "@/setup/graphQl"
-import { useAuthStore } from "@/stores/authStore"
 import { gql, useQuery } from "@apollo/client"
-import { useMemo } from "react"
+
+/**
+ * todo: move this to a server query method
+ */
 
 const meQuery = gql`{
     me {
@@ -12,12 +13,11 @@ const meQuery = gql`{
   }`
 
 export function useMe() {
-    const {token} = useAuthStore()
-    const client = useMemo(() => createApolloClient(token), [token])
-    const { data: me, loading } = useQuery(meQuery, {client})
+    // const { data: me, loading } = useQuery(meQuery, {client})
+    const loading: boolean = true
 
     return {
-        me,
+        me: undefined,
         loading,
     }
 }

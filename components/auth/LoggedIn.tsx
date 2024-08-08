@@ -4,9 +4,9 @@ import { useAuthStore } from "@/stores/authStore";
 import { PropsWithChildren } from "react";
 
 export function LoggedIn({children}: PropsWithChildren) {
-    const {token} = useAuthStore()
+    const {user} = useAuthStore()
 
-    if (token === undefined) {
+    if (user === undefined) {
         return null
     }
 

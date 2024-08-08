@@ -1,18 +1,11 @@
 import {createContext, PropsWithChildren, useContext, useState} from "react";
+import {User} from "@/types";
 
-type Token = string|undefined
-
-type User = {
-  id: string
-  name: string
-  email: string
-} | undefined
+type Token = string
 
 type AuthContext = {
-  setToken(token: Token): void
-  token: Token
-  setUser(user: User): void
-  user: User
+  setUser(user: User|undefined): void
+  user: User|undefined
 }
 
 const authContext = createContext(
@@ -30,15 +23,11 @@ export const useAuthStore = () => {
 }
 
 export const AuthProvider = ({children}: PropsWithChildren) => {
-  const [token, _setToken] = useState<Token>(undefined)
-  const [user, _setUser] = useState<User>(undefined)
+  const [user, _setUser] = useState<User|undefined>(undefined)
 
   const value: AuthContext = {
-    setToken(token) {
-      _setToken(token)
-    },
-    token,
     setUser(user) {
+      console.log(user)
       _setUser(user)
     },
     user

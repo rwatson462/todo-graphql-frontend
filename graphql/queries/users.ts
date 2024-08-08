@@ -1,7 +1,9 @@
-import { createApolloClient } from "@/setup/graphQl"
-import { useAuthStore } from "@/stores/authStore"
-import { gql, useQuery } from "@apollo/client"
-import { useMemo } from "react"
+import { gql } from "@apollo/client"
+import {User} from "@/types";
+
+/**
+ * todo: move this to a server query method
+ */
 
 const usersQuery = gql`
     query {
@@ -14,17 +16,10 @@ const usersQuery = gql`
         }
     }`
 
-type User = {
-    name: string
-    email: string
-    id: string
-}
-
 export function useUsers(): |
 { users: User[], loading: false } | { users: undefined, loading: true } {
-    const { token } = useAuthStore()
-    const client = useMemo(() => createApolloClient(token), [token])
-    const { data, loading } = useQuery<{ users: { data: User[] } }>(usersQuery, { client })
+    // const { data, loading } = useQuery<{ users: { data: User[] } }>(usersQuery, { client })
+    const loading: boolean = true
 
     if (loading) {
         return {
@@ -33,7 +28,7 @@ export function useUsers(): |
         }
     } else {
         return {
-            users: data!.users.data,
+            users: [],
             loading,
         }
     }

@@ -3,7 +3,7 @@
 import {gql} from "@apollo/client";
 import {cookies} from "next/headers";
 import {createApolloClient} from "@/app/lib/server/auth/apollo";
-import {createUser} from "@/app/lib/server/auth/models/User";
+import {makeUser} from "@/app/lib/server/auth/models/User";
 import {LoginForm} from "@/types";
 
 const loginMutation = gql`
@@ -34,7 +34,7 @@ export async function login(loginData: LoginForm) {
       maxAge: 60 * 60 * 24 * 30,  // 1 month
     })
 
-    return createUser(response.data.login.user)
+    return makeUser(response.data.login.user)
 
   } catch (error) {
     console.log('ERROR', error)

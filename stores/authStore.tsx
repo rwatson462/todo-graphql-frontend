@@ -1,5 +1,6 @@
-import {createContext, PropsWithChildren, useContext, useState} from "react";
+import {createContext, PropsWithChildren, useContext, useEffect, useState} from "react";
 import {User} from "@/types";
+import {getLoggedInUser} from "@/app/lib/server/auth/queries/getLoggedInUser";
 
 type Token = string
 
@@ -24,6 +25,15 @@ export const useAuthStore = () => {
 
 export const AuthProvider = ({children}: PropsWithChildren) => {
   const [user, _setUser] = useState<User|undefined>(undefined)
+
+  useEffect(() => {
+    getLoggedInUser().then(user => {
+      _setUser(user)
+    }).catch(err => {
+      console.log(err)
+      _setUser(undefined)
+    })
+  }, [])
 
   const value: AuthContext = {
     setUser(user) {

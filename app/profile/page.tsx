@@ -1,21 +1,16 @@
-'use client';
-
-import {useAuthStore} from "@/stores/authStore";
 import {PageTitle} from "@/components/PageTitle";
-import { useMe } from "@/graphql/queries/me";
+import {getLoggedInUser} from "@/app/lib/server/auth/queries/getLoggedInUser";
 
-export default function Page() {
-  const {me, loading} = useMe()
-  
-  if (loading) {
-    return <p>Loading...</p>
-  }
+export default async function Page() {
+  const user = await getLoggedInUser()
+
+  // todo: add to this page so we show the user's details and add a form to update them
 
   return (
     <div>
       <PageTitle>Me</PageTitle>
       <p>Your data:</p>
-      <pre>{ JSON.stringify(me, undefined, 2) }</pre>
+      <pre>{ JSON.stringify(user, undefined, 2) }</pre>
     </div>
   )
 }

@@ -1,13 +1,7 @@
-"use client";
+import {listUsers} from "@/app/lib/server/auth/queries/listUsers";
 
-import { useUsers } from "@/graphql/queries/users";
-
-export default function Page() {
-  const {users, loading} = useUsers()
-
-  if (loading) {
-    return <p>Loading...</p>
-  }
+export default async function Page() {
+  const users = await listUsers()
 
   return (
     <ul>

@@ -37,7 +37,6 @@ export const AuthProvider = ({children}: PropsWithChildren) => {
 
   const value: AuthContext = {
     setUser(user) {
-      console.log(user)
       _setUser(user)
     },
     user

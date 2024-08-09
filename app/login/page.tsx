@@ -1,9 +1,9 @@
 'use client'
 
-import { Fieldset } from "@/components/form/Fieldset";
-import { PageTitle } from "@/components/PageTitle";
-import { useForm } from "react-hook-form";
-import { FormGroup } from "@/components/form/FormGroup";
+import {Fieldset} from "@/components/form/Fieldset";
+import {PageTitle} from "@/components/PageTitle";
+import {useForm} from "react-hook-form";
+import {FormGroup} from "@/components/form/FormGroup";
 import {login} from "@/app/lib/server/auth/actions/login";
 import {SubmitButton} from "@/components/form/SubmitButton";
 import {LoginForm} from "@/types";
@@ -15,13 +15,13 @@ export default function Page() {
   const {setUser} = useAuthStore()
   const {register, handleSubmit} = useForm<LoginForm>()
 
-  function _login(data: LoginForm) {
-    login(data)
-      .then(user => {
-        setUser(user)
-        navigate('/')
-      })
-      .catch(error => console.log(error))
+  async function _login(data: LoginForm) {
+    const user = await login(data)
+    if (user) {
+      setUser(user)
+      navigate('/')
+    }
+    // todo: handle failure to log in
   }
 
   return (

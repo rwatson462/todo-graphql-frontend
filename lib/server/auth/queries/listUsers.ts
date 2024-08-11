@@ -2,9 +2,9 @@
 
 import {cookies} from "next/headers";
 import {gql} from "@apollo/client";
-import {createApolloClient} from "@/app/lib/server/auth/apollo";
+import {createApolloClient} from "@/lib/server/auth/apollo";
 import {User} from "@/types";
-import {makeUser} from "@/app/lib/server/auth/models/User";
+import {makeUser} from "@/lib/server/auth/models/User";
 
 type ListUsersQuery = {
   users: {

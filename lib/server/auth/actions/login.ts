@@ -2,8 +2,8 @@
 
 import {gql} from "@apollo/client";
 import {cookies} from "next/headers";
-import {createApolloClient} from "@/app/lib/server/auth/apollo";
-import {makeUser} from "@/app/lib/server/auth/models/User";
+import {createApolloClient} from "@/lib/server/auth/apollo";
+import {makeUser} from "@/lib/server/auth/models/User";
 import {LoginForm} from "@/types";
 
 const loginMutation = gql`

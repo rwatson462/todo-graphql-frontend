@@ -1,10 +1,10 @@
 'use client'
 
-import { useAuthStore } from "@/stores/authStore";
 import { PropsWithChildren } from "react";
+import {useAuth} from "@/lib/client/auth/useAuth";
 
 export function LoggedOut({children}: PropsWithChildren) {
-    const {user} = useAuthStore()
+    const {user} = useAuth()
 
     if (user !== undefined) {
         return null

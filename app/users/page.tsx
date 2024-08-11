@@ -1,4 +1,4 @@
-import {listUsers} from "@/app/lib/server/auth/queries/listUsers";
+import {listUsers} from "@/lib/server/auth/queries/listUsers";
 
 export default async function Page() {
   const users = await listUsers()

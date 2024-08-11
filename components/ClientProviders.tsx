@@ -1,7 +1,7 @@
 'use client';
 
 import {PropsWithChildren} from "react";
-import {AuthProvider} from "@/stores/authStore";
+import {AuthProvider} from "@/lib/client/auth/AuthProvider";
 
 export const ClientProviders = ({children}: PropsWithChildren) => (
   <AuthProvider>

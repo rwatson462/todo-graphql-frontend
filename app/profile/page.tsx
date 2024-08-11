@@ -1,7 +1,7 @@
 'use server'
 
 import {PageTitle} from "@/components/PageTitle";
-import {getLoggedInUser} from "@/app/lib/server/auth/queries/getLoggedInUser";
+import {getLoggedInUser} from "@/lib/server/auth/queries/getLoggedInUser";
 
 
 export default async function Page() {

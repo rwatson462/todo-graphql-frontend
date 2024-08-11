@@ -2,6 +2,7 @@
 
 import {PageTitle} from "@/components/PageTitle";
 import {getLoggedInUser} from "@/lib/server/auth/queries/getLoggedInUser";
+import {LogoutForm} from "@/components/auth/LogoutForm";
 
 
 export default async function Page() {
@@ -18,6 +19,10 @@ export default async function Page() {
       <PageTitle>Me</PageTitle>
       <p>Your data:</p>
       <pre>{JSON.stringify(user, undefined, 2)}</pre>
+
+      <section className={'py-8'}>
+        <LogoutForm/>
+      </section>
     </div>
   )
 }

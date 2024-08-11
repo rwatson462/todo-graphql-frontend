@@ -21,4 +21,3 @@ Swapping out the addresses for your graphql server location.
 
 ## Todo
 * Figure out how to wrap graphql "errors" from server actions gracefully to be detected in the app automatically
-* Build registration route

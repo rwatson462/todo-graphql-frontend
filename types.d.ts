@@ -15,3 +15,9 @@ export type User = {
   name: string
   email: string
 }
+
+export type Todo = {
+  id: string
+  title: string
+  status: string
+}

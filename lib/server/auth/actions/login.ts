@@ -2,7 +2,7 @@
 
 import {gql} from "@apollo/client";
 import {cookies} from "next/headers";
-import {createApolloClient} from "@/lib/server/auth/apollo";
+import {createApolloClient} from "@/lib/server/apollo";
 import {makeUser} from "@/lib/server/auth/models/User";
 import {LoginForm} from "@/types";
 
